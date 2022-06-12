@@ -1,0 +1,12 @@
+version: '2.3'
+services:
+    app:
+        build: .
+        ipc: host
+        shm_size: '8gb'
+        container_name: bertrl 
+        runtime: nvidia
+        volumes:
+            - .:/home
+        tty: true
+
