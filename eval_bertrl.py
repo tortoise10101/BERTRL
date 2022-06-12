@@ -28,13 +28,13 @@ if __name__ == '__main__':
                         help="total_triples")
 
     params = parser.parse_args()
-    params.main_dir = '/scratch/home/hanwen/BERTRL'
+    params.main_dir = '/home'
 
     # an_sufix = '_anonymized' if params.anonymized else ''
     # data_dir = '/scratch/home/hanwen/BertLogic/output_WN18RR_v1_ind/'
     # data_dir = f'{params.main_dir}/output_{params.dataset}_ind{an_sufix}'
 
-    if not params.bert_output_dir:
+    if not params.bertrl_output_dir:
         params.bert_output_dir = f'{params.main_dir}/output_{params.dataset}{params.additional_suffix}'
 
     res = np.load(f'{params.bert_output_dir}/test_results_prediction_scores.npy')
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     # ipdb.set_trace()
 
-    dataset_short = '_'.join(params.dataset.split('_')[:2])
+    dataset_short = '_'.join(params.dataset.split('_')[:1])
 
     triple_test_data_dir = f'{params.main_dir}/data/{dataset_short}'
     if 'inductive' in params.dataset:
@@ -268,7 +268,7 @@ if __name__ == '__main__':
 
     # target_eids =  sorted(target_eids)
     # correct_target_eids = [eid for eid in target_eids if eid in eid2corrects]
-    ipdb.set_trace()
+    # ipdb.set_trace()
     if part:
         unseen_hits = Counter() # hit for each unseen
         unseen_hits_base = Counter() # base method hit for each unseen
